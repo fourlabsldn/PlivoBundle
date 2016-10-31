@@ -1,0 +1,15 @@
+Plivo\Model\SmsOutgoing:
+  properties:
+    from:
+      - NotBlank: ~
+      - Type: string
+    to:
+      - NotBlank: ~
+      - Type: string
+      - Expression:
+          expression: "this.getFrom() !== this.getTo()"
+          message: "From and To cannot be the same"
+    text:
+      - NotBlank: ~
+      - Type: string
+

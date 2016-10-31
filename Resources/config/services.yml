@@ -1,0 +1,77 @@
+services:
+  # Services to post information to Plivo
+  fl_plivo.client_guzzle:
+    class: Plivo\Client\RestClientGuzzle
+    arguments: ["@guzzle.client.plivo"]
+    private: true
+
+  fl_plivo.plivo:
+    class: Plivo\Plivo
+    arguments: ["@fl_plivo.client_guzzle"]
+
+  # Services to receive SMS from Plivo
+  fl_plivo.incoming_sms_webhook:
+    class: FL\PlivoBundle\Webhook\IncomingSmsWebhook
+    arguments:
+      - "@event_dispatcher"
+      - "%fl_plivo.sms_incoming.class%"
+
+  'Plivo\Action\ApiPostMessageAction':
+    class: Plivo\Action\ApiPostMessageAction
+    arguments: ["@fl_plivo.incoming_sms_webhook"]
+
+  # services for Send Message form
+  fl_plivo.form_type.sms_outgoing:
+    class: FL\PlivoBundle\Form\Type\SmsOutgoingFormType
+    arguments: ["%fl_plivo.sms_outgoing.class%"]
+    tags:
+      - { name: form.type }
+
+  fl_plivo.form_handler.sms:
+    class: FL\PlivoBundle\Form\Handler\SmsFormHandler
+    arguments:
+      - "@fl_plivo.plivo"
+      - "@=service('session').getFlashBag()"
+      - "@event_dispatcher"
+      - "@router"
+      - "%fl_plivo.sms_outgoing.class%"
+
+  fl_plivo.form_handler.sms_outgoing:
+    class: FL\PlivoBundle\Form\Handler\SmsOutgoingFormHandler
+    parent: fl_plivo.form_handler.sms
+
+  'Plivo\Action\SendMessageAction':
+    class: Plivo\Action\SendMessageAction
+    arguments:
+      - "@form.factory"
+      - "@fl_plivo.form_handler.sms_outgoing"
+      - "@twig"
+
+  # services for SmsDeliveryReport
+  fl_plivo.sms_delivery_report_webhook:
+    class: FL\PlivoBundle\Webhook\SmsDeliveryReportWebhook
+    arguments:
+      - "@event_dispatcher"
+      - "%fl_plivo.sms_outgoing.class%"
+
+  'Plivo\Action\ApiMessageDeliveryReportAction':
+    class: Plivo\Action\ApiMessageDeliveryReportAction
+    arguments:
+      - "@fl_plivo.sms_delivery_report_webhook"
+
+  # services for Send Bulk Message form
+  fl_plivo.form_type.bulk_sms_outgoing:
+    class: FL\PlivoBundle\Form\Type\BulkSmsOutgoingFormType
+    tags:
+      - { name: form.type }
+
+  fl_plivo.form_handler.bulk_sms_outgoing:
+    class: FL\PlivoBundle\Form\Handler\BulkSmsOutgoingFormHandler
+    parent: fl_plivo.form_handler.sms
+
+  'Plivo\Action\SendBulkMessageAction':
+    class: Plivo\Action\SendBulkMessageAction
+    arguments:
+      - "@form.factory"
+      - "@fl_plivo.form_handler.bulk_sms_outgoing"
+      - "@twig"

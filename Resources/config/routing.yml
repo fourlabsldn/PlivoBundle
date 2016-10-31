@@ -1,0 +1,13 @@
+fl_plivo_api_routes:
+  type: rest
+  resource: "@FLPlivoBundle/Resources/config/routing/api-v1.0.yml"
+  prefix: /api/{version}
+  defaults: { version : 'v1.0' }
+
+fl_plivo.message_send:
+  path: /send-message
+  defaults: { _controller: 'Plivo\Action\SendMessageAction:__invoke' }
+
+fl_plivo.message_send_bulk:
+  path: /send-bulk-message
+  defaults: { _controller: 'Plivo\Action\SendBulkMessageAction:__invoke' }

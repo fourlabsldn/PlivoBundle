@@ -1,0 +1,9 @@
+fl_plivo.post_message:
+  path: /message
+  defaults: { _controller: 'Plivo\Action\ApiPostMessageAction:__invoke' }
+  methods: [POST]
+
+fl_plivo.message_delivery_report:
+  path: /message/delivery-report
+  defaults: { _controller: 'Plivo\Action\ApiMessageDeliveryReportAction:__invoke' }
+  methods: [POST]

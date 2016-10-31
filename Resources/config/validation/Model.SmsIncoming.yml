@@ -1,0 +1,11 @@
+Plivo\Model\SmsIncoming:
+  properties:
+    from:
+      - NotBlank: ~
+      - Type: string
+    to:
+      - NotBlank: ~
+      - Type: string
+    text:
+      - NotBlank: ~
+      - Type: string
