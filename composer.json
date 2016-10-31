@@ -1,11 +1,11 @@
 {
   "name": "fourlabs/plivo-bundle",
   "version": "1.0",
-  "description": "Plivo Bundle for Symfony",
+  "description": "Plivo Bundle for Symfony - Send and receive text messages",
   "license": "MIT",
   "homepage": "https://github.com/fourlabsldn/PlivoBundle",
   "keywords": [
-    "PHP", "Plivo Bundle", "Text Messaging", "Symfony"
+    "PHP", "Plivo Bundle", "Text Messaging", "Symfony", "SMS"
   ],
   "authors": [
     {
