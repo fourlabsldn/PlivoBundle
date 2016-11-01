@@ -45,9 +45,6 @@ class SmsOutgoingFormType extends AbstractType
                 'required' => true,
                 'label' => 'Text',
             ])
-            ->add('save', Type\SubmitType::class, [
-                'label' => 'Submit',
-            ])
         ;
     }
 

@@ -33,9 +33,6 @@ class BulkSmsOutgoingFormType extends AbstractType
                 'required' => true,
                 'label' => 'Text',
             ])
-            ->add('save', Type\SubmitType::class, [
-                'label' => 'Submit',
-            ])
         ;
 
         $builder->get('to')->addModelTransformer(new BulkSmsFormTransformer());
