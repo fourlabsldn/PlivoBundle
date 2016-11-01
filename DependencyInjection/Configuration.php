@@ -30,6 +30,9 @@ class Configuration implements ConfigurationInterface
                     ->cannotBeEmpty()
                     ->defaultValue('Plivo\Model\SmsOutgoing')
                 ->end()
+                ->booleanNode('development_mode')
+                    ->defaultFalse()
+                ->end()
             ->end()
         ;
 

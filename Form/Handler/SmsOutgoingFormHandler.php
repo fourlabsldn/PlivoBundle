@@ -31,7 +31,9 @@ class SmsOutgoingFormHandler extends SmsFormHandler
 
         $sms = $form->getData();
 
-        $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
+        if (!$this->developmentMode) {
+            $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
+        }
 
         $event = new OutgoingSmsSentEvent($sms);
         $this->dispatcher->dispatch(OutgoingSmsSentEvent::EVENT_NAME, $event);

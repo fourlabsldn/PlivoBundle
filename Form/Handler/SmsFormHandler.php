@@ -34,22 +34,30 @@ abstract class SmsFormHandler
     protected $smsClass;
 
     /**
+     * @var bool
+     */
+    protected $developmentMode;
+
+    /**
      * SmsFormHandler constructor.
      * @param Plivo $plivo
      * @param EventDispatcherInterface $dispatcher
      * @param RouterInterface $router
      * @param string $smsClass
+     * @param bool $developmentMode
      */
     public function __construct(
         Plivo $plivo,
         EventDispatcherInterface $dispatcher,
         RouterInterface $router,
-        string $smsClass
+        string $smsClass,
+        bool $developmentMode
     ) {
         $this->plivo = $plivo;
         $this->dispatcher = $dispatcher;
         $this->router = $router;
         $this->smsClass = $smsClass;
+        $this->developmentMode = $developmentMode;
     }
 
     /**

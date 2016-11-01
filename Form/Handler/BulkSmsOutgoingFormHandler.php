@@ -32,7 +32,9 @@ class BulkSmsOutgoingFormHandler extends SmsFormHandler
 
         $bulkSms = $form->getData();
 
-        $this->plivo->sendBulkSms($bulkSms, $this->getDeliveryReportUrl());
+        if (!$this->developmentMode) {
+            $this->plivo->sendBulkSms($bulkSms, $this->getDeliveryReportUrl());
+        }
 
         $this->dispatchEvents($bulkSms);
     }
