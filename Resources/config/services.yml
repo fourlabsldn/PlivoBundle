@@ -34,6 +34,7 @@ services:
       - "@event_dispatcher"
       - "@router"
       - "%fl_plivo.sms_outgoing.class%"
+      - "%fl_plivo.development_mode%"
 
   fl_plivo.form_handler.sms_outgoing:
     class: FL\PlivoBundle\Form\Handler\SmsOutgoingFormHandler
