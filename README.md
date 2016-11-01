@@ -2,8 +2,23 @@
 
 ## Installation
 
+
+Install with composer
 ```bash
     $ composer require fourlabs/plivo-bundle
+```
+
+Add the bundle to app/AppKernel.php
+```php
+<?php
+    $bundles = [
+        // ...
+        // FLPlivoBundle depends on GuzzleBundle
+        // Add it if it's not already present in your $bundles
+        new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(), 
+        new FL\PlivoBundle\FLPlivoBundle(),    
+    ];
+            
 ```
 
 ## Sample Configuration
@@ -39,9 +54,9 @@ fl_plivo:
 
 ## Suggested Implementation
 
-Create a Doctrine entity that extends \Plivo\Model\SmsIncoming
-Create a Doctrine entity that extends \Plivo\Model\SmsOutgoing
-Create EventListeners that will persist sms messages to the database, for example:
+- Create a Doctrine entity that extends \Plivo\Model\SmsIncoming
+- Create a Doctrine entity that extends \Plivo\Model\SmsOutgoing
+- Create EventListeners that will persist sms messages to the database, for example:
 
 ```yaml
   app.message_delivery_report_listener:
@@ -67,8 +82,6 @@ Create EventListeners that will persist sms messages to the database, for exampl
     tags:
       - { name: kernel.event_listener, event: fl_plivo.incoming_sms.received, method: onMessageReceived }
 ```
-
-
 
 ## License
 
