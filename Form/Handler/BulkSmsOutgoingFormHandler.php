@@ -34,8 +34,6 @@ class BulkSmsOutgoingFormHandler extends SmsFormHandler
 
         $this->plivo->sendBulkSms($bulkSms, $this->getDeliveryReportUrl());
 
-        $this->flashBag->add('notice', 'Message sent successfully');
-
         $this->dispatchEvents($bulkSms);
     }
 

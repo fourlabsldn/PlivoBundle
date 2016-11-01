@@ -15,11 +15,6 @@ use Symfony\Component\Routing\RouterInterface;
 abstract class SmsFormHandler
 {
     /**
-     * @var FlashBagInterface
-     */
-    protected $flashBag;
-
-    /**
      * @var Plivo
      */
     protected $plivo;
@@ -42,20 +37,17 @@ abstract class SmsFormHandler
     /**
      * SmsFormHandler constructor.
      * @param Plivo $plivo
-     * @param FlashBagInterface $flashBag
      * @param EventDispatcherInterface $dispatcher
      * @param RouterInterface $router
      * @param string $smsClass
      */
     public function __construct(
         Plivo $plivo,
-        FlashBagInterface $flashBag,
         EventDispatcherInterface $dispatcher,
         RouterInterface $router,
         string $smsClass
     ) {
         $this->plivo = $plivo;
-        $this->flashBag = $flashBag;
         $this->dispatcher = $dispatcher;
         $this->router = $router;
         $this->smsClass = $smsClass;

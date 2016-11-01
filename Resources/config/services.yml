@@ -31,7 +31,6 @@ services:
     class: FL\PlivoBundle\Form\Handler\SmsFormHandler
     arguments:
       - "@fl_plivo.plivo"
-      - "@=service('session').getFlashBag()"
       - "@event_dispatcher"
       - "@router"
       - "%fl_plivo.sms_outgoing.class%"

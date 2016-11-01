@@ -33,8 +33,6 @@ class SmsOutgoingFormHandler extends SmsFormHandler
 
         $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
 
-        $this->flashBag->add('notice', 'Message sent successfully');
-
         $event = new OutgoingSmsSentEvent($sms);
         $this->dispatcher->dispatch(OutgoingSmsSentEvent::EVENT_NAME, $event);
     }
