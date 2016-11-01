@@ -11,6 +11,7 @@ Install with composer
 Add the bundle to app/AppKernel.php
 ```php
 <?php
+    //...
     $bundles = [
         // ...
         // FLPlivoBundle depends on GuzzleBundle
