@@ -56,36 +56,16 @@ fl_plivo:
 
 ## Suggested Implementation
 
-- Create a Doctrine entity that extends \Plivo\Model\SmsIncoming
-- Create a Doctrine entity that extends \Plivo\Model\SmsOutgoing
-- Create EventListeners that will persist sms messages to the database, for example:
-
+- Create an entity for your ORM/ODM (e.g. Doctrine) that extends \Plivo\Model\SmsIncoming
+- Create an entity that extends \Plivo\Model\SmsOutgoing
+- If you are using Doctrine, you can use the corresponding event listeners, by importing them. 
 ```yaml
-  app.message_delivery_report_listener:
-    class: AppBundle\EventListener\MessageDeliveryReportListener
-    arguments:
-      - '@doctrine.orm.entity_manager'
-      - "@=service('doctrine').getRepository('AppBundle:SmsOutgoing')"
-    tags:
-      - { name: kernel.event_listener, event: fl_plivo.outgoing_sms.delivered, method: onMessageDeliveryReport }
-
-  app.message_sent_listener:
-    class: AppBundle\EventListener\MessageSentListener
-    arguments:
-      - '@doctrine.orm.entity_manager'
-    tags:
-      - { name: kernel.event_listener, event: fl_plivo.outgoing_sms.sent, method: onMessageSent }
-
-  app.message_received_listener:
-    class: AppBundle\EventListener\MessageReceivedListener
-    arguments:
-      - '@doctrine.orm.entity_manager'
-      - "@=service('doctrine').getRepository('AppBundle:SmsOutgoing')"
-    tags:
-      - { name: kernel.event_listener, event: fl_plivo.incoming_sms.received, method: onMessageReceived }
+//app/config/config.yml
+imports:
+    - { resource: "@FLPlivoBundle/Resources/config/event-listener/doctrine.yml"}
 ```
-
-- To receive SMS messages, follow the instructions for https://www.plivo.com/faq/sms/how-can-i-receive-sms-messages-with-my-plivo-numbers/ 
+- If you are using not using Doctrine, create your own event listeners and submit a pull request ;)
+- To receive SMS messages, follow the instructions from [Plivo](https://www.plivo.com/faq/sms/how-can-i-receive-sms-messages-with-my-plivo-numbers/) 
 - Use the corresponding url for the route `fl_plivo.post_message`
 
 ## License
