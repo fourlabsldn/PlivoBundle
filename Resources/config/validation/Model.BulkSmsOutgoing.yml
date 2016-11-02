@@ -1,0 +1,18 @@
+Plivo\Model\BulkSmsOutgoing:
+    properties:
+        from:
+            - NotBlank: ~
+            - Type: string
+        to:
+            - All:
+                - NotBlank: ~
+                    - Type: string
+                - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber:
+                    - type: "mobile"
+                    - defaultRegion: "GB"
+            - Expression:
+                expression: "this.getFrom() not in this.getTo()"
+                message: "From and To cannot contain the same number."
+        text:
+            - NotBlank: ~
+            - Type: string

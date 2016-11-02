@@ -2,7 +2,6 @@
 
 ## Installation
 
-
 Install with composer
 ```bash
     $ composer require fourlabs/plivo-bundle
@@ -85,6 +84,9 @@ fl_plivo:
     tags:
       - { name: kernel.event_listener, event: fl_plivo.incoming_sms.received, method: onMessageReceived }
 ```
+
+- To receive SMS messages, follow the instructions for https://www.plivo.com/faq/sms/how-can-i-receive-sms-messages-with-my-plivo-numbers/ 
+- Use the corresponding url for the route `fl_plivo.post_message`
 
 ## License
 
