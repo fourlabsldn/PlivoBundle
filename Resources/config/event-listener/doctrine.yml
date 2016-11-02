@@ -1,0 +1,23 @@
+services:
+
+  fl_plivo.persist_sms_delivered_listener:
+    class: FL\PlivoBundle\EventListener\Doctrine\PersistSmsDeliveredListener
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - "%fl_plivo.sms_outgoing.class%"
+    tags:
+      - { name: kernel.event_listener, event: fl_plivo.outgoing_sms.delivered, method: onMessageDelivered }
+
+  fl_plivo.persist_sms_sent_listener:
+    class: FL\PlivoBundle\EventListener\Doctrine\PersistSmsSentListener
+    arguments:
+      - '@doctrine.orm.entity_manager'
+    tags:
+      - { name: kernel.event_listener, event: fl_plivo.outgoing_sms.sent, method: onMessageSent }
+
+  fl_plivo.persist_sms_received_listener:
+    class: FL\PlivoBundle\EventListener\Doctrine\PersistSmsReceivedListener
+    arguments:
+      - '@doctrine.orm.entity_manager'
+    tags:
+      - { name: kernel.event_listener, event: fl_plivo.incoming_sms.received, method: onMessageReceived }
