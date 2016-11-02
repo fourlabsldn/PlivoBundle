@@ -33,6 +33,11 @@ class Configuration implements ConfigurationInterface
                 ->booleanNode('development_mode')
                     ->defaultFalse()
                 ->end()
+                ->arrayNode('from_phone_numbers')
+                    ->cannotBeEmpty()
+                    ->isRequired()
+                    ->prototype('scalar')
+                ->end()
             ->end()
         ;
 

@@ -47,5 +47,6 @@ class FLPlivoExtension extends Extension
         $container->setParameter('fl_plivo.sms_outgoing.class', $config['sms_outgoing_class']);
         $container->setParameter('fl_plivo.sms_incoming.class', $config['sms_incoming_class']);
         $container->setParameter('fl_plivo.development_mode', $config['development_mode']);
+        $container->setParameter('fl_plivo.from_phone_numbers', $config['from_phone_numbers']);
     }
 }

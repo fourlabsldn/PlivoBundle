@@ -19,12 +19,19 @@ class SmsOutgoingFormType extends AbstractType
     private $smsClass;
 
     /**
+     * @var string[]|int[]
+     */
+    private $phoneNumberChoices;
+
+    /**
      * SmsOutgoingFormType constructor.
      * @param string $smsClass
+     * @param \int[]|\string[] $phoneNumbers
      */
-    public function __construct(string $smsClass)
+    public function __construct(string $smsClass, array $phoneNumbers)
     {
         $this->smsClass = $smsClass;
+        $this->phoneNumberChoices = array_combine($phoneNumbers, $phoneNumbers);
     }
 
     /**
@@ -33,9 +40,10 @@ class SmsOutgoingFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('from', Type\TextType::class, [
+            ->add('from', Type\ChoiceType::class, [
                 'required' => true,
                 'label' => 'From',
+                'choices' => $this->phoneNumberChoices
             ])
             ->add('to', Type\TextType::class, [
                 'required' => true,

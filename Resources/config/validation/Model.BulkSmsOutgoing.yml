@@ -12,6 +12,7 @@ Plivo\Model\BulkSmsOutgoing:
                 - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber:
                     type: "mobile"
                     defaultRegion: "GB"
+                    message: "All phone numbers must be valid."
             - Expression:
                 expression: "this.getFrom() not in this.getTo()"
                 message: "From and To cannot contain the same number."
