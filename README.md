@@ -2,7 +2,6 @@
 
 ## Installation
 
-
 Install with composer
 ```bash
     $ composer require fourlabs/plivo-bundle

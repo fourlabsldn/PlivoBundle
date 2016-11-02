@@ -12,9 +12,9 @@ abstract class BulkSms implements BulkSmsInterface
 
     /**
      * Numbers these messages will be sent to.
-     * @var array of string
+     * @var string[]
      */
-    protected $to;
+    protected $to = [];
 
     /**
      * Content of the message to send.
@@ -25,9 +25,9 @@ abstract class BulkSms implements BulkSmsInterface
     /**
      * MessageUUIDs of each message that has been sent.
      * Their order will match the order of the phones in the $to field.
-     * @var array of string
+     * @var string[]
      */
-    protected $uuids;
+    protected $uuids = [];
 
     /**
      * @param string|null $from
