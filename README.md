@@ -14,9 +14,10 @@ Add the bundle to app/AppKernel.php
     //...
     $bundles = [
         // ...
-        // FLPlivoBundle depends on GuzzleBundle
-        // Add it if it's not already present in your $bundles
+        // FLPlivoBundle depends on GuzzleBundle and MisdPhoneNumberBundle
+        // Add them if they're not already present in your $bundles
         new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(), 
+        new Misd\PhoneNumberBundle\MisdPhoneNumberBundle(), 
         new FL\PlivoBundle\FLPlivoBundle(),    
     ];
             
