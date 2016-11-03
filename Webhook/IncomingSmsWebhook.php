@@ -9,8 +9,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class IncomingSmsWebhook
- * @package Webhook
+ * Class IncomingSmsWebhook.
  */
 class IncomingSmsWebhook implements WebhookInterface
 {
@@ -26,8 +25,9 @@ class IncomingSmsWebhook implements WebhookInterface
 
     /**
      * IncomingSmsWebhook constructor.
+     *
      * @param EventDispatcherInterface $dispatcher
-     * @param string $smsClass
+     * @param string                   $smsClass
      */
     public function __construct(EventDispatcherInterface $dispatcher, string $smsClass)
     {
@@ -36,14 +36,14 @@ class IncomingSmsWebhook implements WebhookInterface
     }
 
     /**
-     * Convert a request into an SmsIncoming object
+     * Convert a request into an SmsIncoming object.
+     *
      * @param Request $request
-     * @return void
      */
     public function handleRequest(Request $request)
     {
         $smsIncoming = new $this->smsClass();
-        /** @var SmsInterface $smsIncoming */
+        /* @var SmsInterface $smsIncoming */
         $smsIncoming
             ->setFrom($request->request->get('From'))
             ->setTo($request->request->get('To'))

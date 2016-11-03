@@ -21,7 +21,7 @@ class PersistSmsDeliveredListener
 
     /**
      * @param EntityManagerInterface $manager
-     * @param string $smsOutgoingClass
+     * @param string                 $smsOutgoingClass
      */
     public function __construct(
         EntityManagerInterface $manager,
@@ -38,10 +38,10 @@ class PersistSmsDeliveredListener
     {
         if (!$message = $this->smsOutgoingRepository->findOneByUuid($event->getSms()->getUuid())) {
             throw new \RuntimeException(
-                "SmsOutgoing with this MessageUUID not found."
+                'SmsOutgoing with this MessageUUID not found.'
             );
         }
-        /** @var SmsOutgoingInterface $message */
+        /* @var SmsOutgoingInterface $message */
         $message->setDelivered();
         $this->manager->flush();
     }

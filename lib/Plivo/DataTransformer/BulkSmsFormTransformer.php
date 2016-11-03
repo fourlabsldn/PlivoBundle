@@ -5,13 +5,13 @@ namespace Plivo\DataTransformer;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
- * Class BulkSmsTransformer
- * @package Plivo\DataTransformer
+ * Class BulkSmsTransformer.
  */
 class BulkSmsFormTransformer implements DataTransformerInterface
 {
     /**
      * @param mixed $to
+     *
      * @return string
      */
     public function transform($to): string
@@ -21,6 +21,7 @@ class BulkSmsFormTransformer implements DataTransformerInterface
 
     /**
      * @param mixed $to
+     *
      * @return array
      */
     public function reverseTransform($to): array

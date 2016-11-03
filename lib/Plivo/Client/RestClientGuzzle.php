@@ -6,8 +6,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\TransferException;
 
 /**
- * Class RestClientGuzzle
- * @package Plivo\Client
+ * Class RestClientGuzzle.
  */
 class RestClientGuzzle extends RestClient implements RestClientGuzzleInterface
 {

@@ -9,8 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
- * Class ApiMessageDeliveryReportAction
- * @package Plivo\Action
+ * Class ApiMessageDeliveryReportAction.
  */
 class ApiMessageDeliveryReportAction
 {
@@ -21,6 +20,7 @@ class ApiMessageDeliveryReportAction
 
     /**
      * ApiMessageDeliveryReportAction constructor.
+     *
      * @param WebhookInterface $webhook
      */
     public function __construct(WebhookInterface $webhook)
@@ -30,7 +30,9 @@ class ApiMessageDeliveryReportAction
 
     /**
      * Receive and validate an SMS delivery request coming from Plivo.
+     *
      * @param Request $request
+     *
      * @return View
      */
     public function __invoke(Request $request): View

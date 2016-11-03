@@ -3,8 +3,8 @@
 namespace Plivo\Model;
 
 /**
- * Model SmsIncoming
- * @package Plivo\Model
+ * Model SmsIncoming.
  */
 class SmsIncoming extends Sms
-{}
+{
+}

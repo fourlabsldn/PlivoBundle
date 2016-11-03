@@ -9,14 +9,13 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class BulkSmsOutgoingFormHandler
- * @package FL\PlivoBundle\Form\Handler
+ * Class BulkSmsOutgoingFormHandler.
  */
 class BulkSmsOutgoingFormHandler extends SmsFormHandler
 {
     /**
      * @param FormInterface $form
-     * @param Request $request
+     * @param Request       $request
      */
     public function handle(FormInterface $form, Request $request)
     {
@@ -43,6 +42,7 @@ class BulkSmsOutgoingFormHandler extends SmsFormHandler
      * Dispatch an event for each SMS that has been sent to Plivo.
      * Since the messages have already been sent, they also need to
      * be set as 'queued'.
+     *
      * @param BulkSmsInterface $bulkSms
      */
     public function dispatchEvents(BulkSmsInterface $bulkSms)
@@ -50,9 +50,9 @@ class BulkSmsOutgoingFormHandler extends SmsFormHandler
         $to = $bulkSms->getTo();
         $uuids = $bulkSms->getUuids();
 
-        for ($i = 0, $count = count($to); $i < $count; $i++) {
+        for ($i = 0, $count = count($to); $i < $count; ++$i) {
             $sms = new $this->smsClass();
-            /** @var SmsOutgoingInterface $sms */
+            /* @var SmsOutgoingInterface $sms */
             $sms->setQueued()
                 ->setTo($to[$i])
                 ->setUuid($uuids[$i])
