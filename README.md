@@ -66,7 +66,7 @@ imports:
 ```
 - If you are using not using Doctrine, create your own event listeners and submit a pull request ;)
 - To receive SMS messages, follow the instructions from [Plivo](https://www.plivo.com/faq/sms/how-can-i-receive-sms-messages-with-my-plivo-numbers/) 
-- Use the corresponding url for the route `fl_plivo.post_message`
+- Use the corresponding url for the route `fl_plivo.post_message` (If you imported the default routing file, without a prefix, this would be /api/v1.0/message)
 
 ## License
 
