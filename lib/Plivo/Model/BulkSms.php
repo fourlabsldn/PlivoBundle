@@ -6,18 +6,21 @@ abstract class BulkSms implements BulkSmsInterface
 {
     /**
      * Number these messages will be sent from.
+     *
      * @var string
      */
     protected $from;
 
     /**
      * Numbers these messages will be sent to.
+     *
      * @var string[]
      */
     protected $to;
 
     /**
      * Content of the message to send.
+     *
      * @var string
      */
     protected $text;
@@ -25,12 +28,14 @@ abstract class BulkSms implements BulkSmsInterface
     /**
      * MessageUUIDs of each message that has been sent.
      * Their order will match the order of the phones in the $to field.
+     *
      * @var string[]
      */
     protected $uuids;
 
     /**
      * @param string|null $from
+     *
      * @return BulkSmsInterface
      */
     public function setFrom(string $from = null): BulkSmsInterface
@@ -50,6 +55,7 @@ abstract class BulkSms implements BulkSmsInterface
 
     /**
      * @param array|null $to
+     *
      * @return BulkSmsInterface
      */
     public function setTo(array $to = null): BulkSmsInterface
@@ -69,6 +75,7 @@ abstract class BulkSms implements BulkSmsInterface
 
     /**
      * @param string|null $text
+     *
      * @return BulkSmsInterface
      */
     public function setText(string $text = null): BulkSmsInterface
@@ -88,6 +95,7 @@ abstract class BulkSms implements BulkSmsInterface
 
     /**
      * @param array|null $uuids
+     *
      * @return BulkSmsInterface
      */
     public function setUuids(array $uuids = null): BulkSmsInterface

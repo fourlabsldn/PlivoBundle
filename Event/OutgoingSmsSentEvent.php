@@ -6,8 +6,7 @@ use Plivo\Model\SmsInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Class OutgoingSmsSentEvent
- * @package Plivo\Event
+ * Class OutgoingSmsSentEvent.
  */
 class OutgoingSmsSentEvent extends Event
 {
@@ -20,6 +19,7 @@ class OutgoingSmsSentEvent extends Event
 
     /**
      * OutgoingSmsSentEvent constructor.
+     *
      * @param SmsInterface $sms
      */
     public function __construct(SmsInterface $sms)
@@ -29,6 +29,7 @@ class OutgoingSmsSentEvent extends Event
 
     /**
      * Get SMS sent through the event.
+     *
      * @return SmsInterface
      */
     public function getSms()

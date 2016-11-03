@@ -5,14 +5,15 @@ namespace Plivo\Webhook;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Interface WebhookInterface
- * @package Webhook
+ * Interface WebhookInterface.
  */
 interface WebhookInterface
 {
     /**
-     * Handle a request
+     * Handle a request.
+     *
      * @param Request $request
+     *
      * @return mixed
      */
     public function handleRequest(Request $request);

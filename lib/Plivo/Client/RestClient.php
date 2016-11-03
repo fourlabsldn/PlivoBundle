@@ -3,8 +3,7 @@
 namespace Plivo\Client;
 
 /**
- * Class RestClient
- * @package Plivo\Client
+ * Class RestClient.
  */
 abstract class RestClient implements RestClientInterface
 {

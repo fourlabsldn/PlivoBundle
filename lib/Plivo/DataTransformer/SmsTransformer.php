@@ -6,14 +6,15 @@ use Plivo\Model\SmsIncoming;
 use Plivo\Model\SmsInterface;
 
 /**
- * Class SmsTransformer
- * @package Plivo\DataTransformer
+ * Class SmsTransformer.
  */
 class SmsTransformer
 {
     /**
-     * Transform main SMS attributes into an array: from, to, text
+     * Transform main SMS attributes into an array: from, to, text.
+     *
      * @param SmsInterface $sms
+     *
      * @return array
      */
     public function transform(SmsInterface $sms): array
@@ -21,13 +22,15 @@ class SmsTransformer
         return [
             'src' => $sms->getFrom(),
             'dst' => $sms->getTo(),
-            'text' => $sms->getText()
+            'text' => $sms->getText(),
         ];
     }
 
     /**
-     * Transform an array into an SMS using its main attributes: from, to, text
+     * Transform an array into an SMS using its main attributes: from, to, text.
+     *
      * @param array $message
+     *
      * @return SmsInterface
      */
     public function reverseTransform(array $message): SmsInterface

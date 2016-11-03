@@ -27,9 +27,10 @@ class SendBulkMessageAction
 
     /**
      * SendBulkMessageAction constructor.
-     * @param FormFactoryInterface $factory
+     *
+     * @param FormFactoryInterface       $factory
      * @param BulkSmsOutgoingFormHandler $handler
-     * @param \Twig_Environment $twig
+     * @param \Twig_Environment          $twig
      */
     public function __construct(
         FormFactoryInterface $factory,
@@ -43,6 +44,7 @@ class SendBulkMessageAction
 
     /**
      * @param Request $request
+     *
      * @return Response
      */
     public function __invoke(Request $request): Response

@@ -9,8 +9,7 @@ use Plivo\Model\BulkSmsInterface;
 use Plivo\Model\SmsOutgoingInterface;
 
 /**
- * Class Plivo
- * @package Plivo
+ * Class Plivo.
  */
 class Plivo
 {
@@ -21,16 +20,19 @@ class Plivo
 
     /**
      * Plivo constructor.
+     *
      * @param RestClientInterface $client
      */
-    public function __construct(RestClientInterface $client) {
+    public function __construct(RestClientInterface $client)
+    {
         $this->client = $client;
     }
 
     /**
      * Send a single SMS through the client.
+     *
      * @param SmsOutgoingInterface $sms
-     * @param string $deliveryReportUrl
+     * @param string               $deliveryReportUrl
      */
     public function sendSms(SmsOutgoingInterface $sms, string $deliveryReportUrl)
     {
@@ -46,8 +48,9 @@ class Plivo
 
     /**
      * Send several SMS messages through the client in a single call.
+     *
      * @param BulkSmsInterface $bulkSms
-     * @param string $deliveryReportUrl
+     * @param string           $deliveryReportUrl
      */
     public function sendBulkSms(BulkSmsInterface $bulkSms, string $deliveryReportUrl)
     {
