@@ -1,5 +1,7 @@
 # PlivoBundle
 
+[![StyleCI](https://styleci.io/repos/72456491/shield?branch=master)](https://styleci.io/repos/72456491)
+
 ## Installation
 
 Install with composer
