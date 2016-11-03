@@ -31,7 +31,7 @@ class FLPlivoExtension extends Extension
         $smsOutgoing = new $config['sms_outgoing_class']();
         if (!($smsOutgoing instanceof SmsOutgoingInterface)) {
             throw new InvalidConfigurationException(sprintf(
-                "Class set in fl_plivo.sms_outgoing_class is not an instance of %s",
+                'Class set in fl_plivo.sms_outgoing_class is not an instance of %s',
                 SmsOutgoingInterface::class
             ));
         }
@@ -39,7 +39,7 @@ class FLPlivoExtension extends Extension
         $smsIncoming = new $config['sms_incoming_class']();
         if (!($smsIncoming instanceof SmsInterface)) {
             throw new InvalidConfigurationException(
-                "Class set in fl_plivo.sms_incoming_class is not an instance of %s",
+                'Class set in fl_plivo.sms_incoming_class is not an instance of %s',
                 SmsInterface::class
             );
         }

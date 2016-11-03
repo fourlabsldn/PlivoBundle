@@ -8,8 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class SmsOutgoingFormType
- * @package FL\PlivoBundle\Form\Type
+ * Class SmsOutgoingFormType.
  */
 class SmsOutgoingFormType extends AbstractType
 {
@@ -25,7 +24,8 @@ class SmsOutgoingFormType extends AbstractType
 
     /**
      * SmsOutgoingFormType constructor.
-     * @param string $smsClass
+     *
+     * @param string           $smsClass
      * @param \int[]|\string[] $phoneNumbers
      */
     public function __construct(string $smsClass, array $phoneNumbers)
@@ -43,7 +43,7 @@ class SmsOutgoingFormType extends AbstractType
             ->add('from', Type\ChoiceType::class, [
                 'required' => true,
                 'label' => 'From',
-                'choices' => $this->phoneNumberChoices
+                'choices' => $this->phoneNumberChoices,
             ])
             ->add('to', Type\TextType::class, [
                 'required' => true,

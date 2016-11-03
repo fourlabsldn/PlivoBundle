@@ -15,7 +15,8 @@ class PersistSmsSentListener
     /**
      * @param EntityManagerInterface $manager
      */
-    public function __construct(EntityManagerInterface $manager) {
+    public function __construct(EntityManagerInterface $manager)
+    {
         $this->manager = $manager;
     }
 

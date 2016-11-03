@@ -3,8 +3,7 @@
 namespace Plivo\Model;
 
 /**
- * Model Sms
- * @package Plivo\Model
+ * Model Sms.
  */
 abstract class Sms implements SmsInterface
 {
@@ -25,6 +24,7 @@ abstract class Sms implements SmsInterface
 
     /**
      * MessageUUID, unique message identifier obtained from Plivo.
+     *
      * @var string
      */
     protected $uuid;
@@ -94,7 +94,6 @@ abstract class Sms implements SmsInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      */
     public function getUuid()

@@ -3,14 +3,14 @@
 namespace Plivo\Model;
 
 /**
- * Model SmsOutgoing
- * @package Plivo\Model
+ * Model SmsOutgoing.
  */
 class SmsOutgoing extends Sms implements SmsOutgoingInterface
 {
     /**
      * SmsOutgoing status
-     * Possible values: pending|queued|delivered
+     * Possible values: pending|queued|delivered.
+     *
      * @var string
      */
     protected $status;
@@ -25,7 +25,8 @@ class SmsOutgoing extends Sms implements SmsOutgoingInterface
     }
 
     /**
-     * Set SmsOutgoing status as 'queued'
+     * Set SmsOutgoing status as 'queued'.
+     *
      * @return SmsOutgoingInterface
      */
     public function setQueued(): SmsOutgoingInterface
@@ -36,7 +37,8 @@ class SmsOutgoing extends Sms implements SmsOutgoingInterface
     }
 
     /**
-     * Set SmsOutgoing status as 'delivered'
+     * Set SmsOutgoing status as 'delivered'.
+     *
      * @return SmsOutgoingInterface
      */
     public function setDelivered(): SmsOutgoingInterface

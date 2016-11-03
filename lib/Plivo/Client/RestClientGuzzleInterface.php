@@ -8,6 +8,7 @@ interface RestClientGuzzleInterface extends RestClientInterface
 {
     /**
      * RestClientGuzzleInterface constructor.
+     *
      * @param ClientInterface $guzzle
      */
     public function __construct(ClientInterface $guzzle);

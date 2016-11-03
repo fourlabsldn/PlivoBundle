@@ -10,8 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class BulkSmsOutgoingFormType
- * @package FL\PlivoBundle\Form\Type
+ * Class BulkSmsOutgoingFormType.
  */
 class BulkSmsOutgoingFormType extends AbstractType
 {
@@ -22,6 +21,7 @@ class BulkSmsOutgoingFormType extends AbstractType
 
     /**
      * BulkSmsOutgoingFormType constructor.
+     *
      * @param \int[]|\string[] $phoneNumbers
      */
     public function __construct(array $phoneNumbers)
@@ -38,7 +38,7 @@ class BulkSmsOutgoingFormType extends AbstractType
             ->add('from', Type\ChoiceType::class, [
                 'required' => true,
                 'label' => 'From',
-                'choices' => $this->phoneNumberChoices
+                'choices' => $this->phoneNumberChoices,
             ])
             ->add('to', Type\TextType::class, [
                 'required' => true,

@@ -8,8 +8,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * Class SmsFormHandler
- * @package FL\PlivoBundle\Form\Handler
+ * Class SmsFormHandler.
  */
 abstract class SmsFormHandler
 {
@@ -40,11 +39,12 @@ abstract class SmsFormHandler
 
     /**
      * SmsFormHandler constructor.
-     * @param Plivo $plivo
+     *
+     * @param Plivo                    $plivo
      * @param EventDispatcherInterface $dispatcher
-     * @param RouterInterface $router
-     * @param string $smsClass
-     * @param bool $developmentMode
+     * @param RouterInterface          $router
+     * @param string                   $smsClass
+     * @param bool                     $developmentMode
      */
     public function __construct(
         Plivo $plivo,
@@ -62,6 +62,7 @@ abstract class SmsFormHandler
 
     /**
      * Return the absolute URL for Plivo to send the message delivery report.
+     *
      * @return string
      */
     protected function getDeliveryReportUrl(): string

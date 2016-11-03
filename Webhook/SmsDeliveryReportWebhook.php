@@ -9,8 +9,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class SmsDeliveryReportWebhook
- * @package FL\PlivoBundle\Webhook
+ * Class SmsDeliveryReportWebhook.
  */
 class SmsDeliveryReportWebhook implements WebhookInterface
 {
@@ -26,8 +25,9 @@ class SmsDeliveryReportWebhook implements WebhookInterface
 
     /**
      * SmsDeliveryReportWebhook constructor.
+     *
      * @param EventDispatcherInterface $dispatcher
-     * @param string $smsClass
+     * @param string                   $smsClass
      */
     public function __construct(EventDispatcherInterface $dispatcher, string $smsClass)
     {
@@ -37,13 +37,13 @@ class SmsDeliveryReportWebhook implements WebhookInterface
 
     /**
      * Convert a request into an SmsOutgoing object.
+     *
      * @param Request $request
-     * @return void
      */
     public function handleRequest(Request $request)
     {
         $sms = new $this->smsClass();
-        /** @var SmsOutgoingInterface $sms */
+        /* @var SmsOutgoingInterface $sms */
         $sms
             ->setDelivered()
             ->setFrom($request->request->get('From'))

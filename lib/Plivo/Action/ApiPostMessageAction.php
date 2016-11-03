@@ -12,7 +12,6 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  * Class ApiPostMessageAction
  * This will be the endpoint that receives SMS messages
  * sent from Plivo when they are received.
- * @package Plivo\Action
  */
 class ApiPostMessageAction
 {
@@ -23,6 +22,7 @@ class ApiPostMessageAction
 
     /**
      * ApiPostMessageAction constructor.
+     *
      * @param WebhookInterface $webhook
      */
     public function __construct(WebhookInterface $webhook)
@@ -32,7 +32,9 @@ class ApiPostMessageAction
 
     /**
      * Receive and validate an Sms received request coming from Plivo.
+     *
      * @param Request $request
+     *
      * @return View
      */
     public function __invoke(Request $request): View
