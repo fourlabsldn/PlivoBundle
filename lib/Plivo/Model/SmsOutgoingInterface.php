@@ -9,6 +9,14 @@ namespace Plivo\Model;
 interface SmsOutgoingInterface extends SmsInterface
 {
     /**
+     * SmsOutgoing will have this status flow:
+     * Pending -> Queued -> Delivered
+     */
+    const STATUS_PENDING = 'pending';
+    const STATUS_QUEUED = 'queued';
+    const STATUS_DELIVERED = 'delivered';
+
+    /**
      * Get the message status
      * @return mixed
      */

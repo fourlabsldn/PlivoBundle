@@ -7,6 +7,4 @@ namespace Plivo\Model;
  * @package Plivo\Model
  */
 class SmsIncoming extends Sms
-{
-
-}
+{}
