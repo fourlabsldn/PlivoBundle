@@ -50,7 +50,7 @@ fl_plivo:
 ## Sample Routing
 
 ```yaml
-// app/config/routing.yml
+# app/config/routing.yml
 fl_plivo:
     resource: "@FLPlivoBundle/Resources/config/routing.yml"
     prefix:   /
@@ -62,7 +62,7 @@ fl_plivo:
 - Create an entity that extends \Plivo\Model\SmsOutgoing
 - If you are using Doctrine, you can use the corresponding event listeners, by importing them. 
 ```yaml
-//app/config/config.yml
+# app/config/config.yml
 imports:
     - { resource: "@FLPlivoBundle/Resources/config/event-listener/doctrine.yml"}
 ```
