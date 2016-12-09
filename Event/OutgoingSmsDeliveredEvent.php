@@ -32,7 +32,7 @@ class OutgoingSmsDeliveredEvent extends Event
      *
      * @return SmsOutgoingInterface
      */
-    public function getSms() : SmsOutgoingInterface
+    public function getSms(): SmsOutgoingInterface
     {
         return $this->sms;
     }

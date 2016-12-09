@@ -47,12 +47,12 @@ class IncomingSmsWebhook implements WebhookInterface
 
         $from = $request->request->get('From');
         if (substr($from, 0, 1) !== '+') {
-            $from = '+' . $from;
+            $from = '+'.$from;
         }
 
         $to = $request->request->get('To');
         if (substr($to, 0, 1) !== '+') {
-            $to = '+' . $to;
+            $to = '+'.$to;
         }
 
         $smsIncoming
