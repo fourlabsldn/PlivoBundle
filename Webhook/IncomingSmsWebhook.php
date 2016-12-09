@@ -42,11 +42,22 @@ class IncomingSmsWebhook implements WebhookInterface
      */
     public function handleRequest(Request $request)
     {
-        $smsIncoming = new $this->smsClass();
         /* @var SmsInterface $smsIncoming */
+        $smsIncoming = new $this->smsClass();
+
+        $from = $request->request->get('From');
+        if (substr($from, 0, 1) !== '+') {
+            $from = '+' . $from;
+        }
+
+        $to = $request->request->get('To');
+        if (substr($to, 0, 1) !== '+') {
+            $to = '+' . $to;
+        }
+
         $smsIncoming
-            ->setFrom($request->request->get('From'))
-            ->setTo($request->request->get('To'))
+            ->setFrom($from)
+            ->setTo($to)
             ->setText($request->request->get('Text'))
             ->setUuid($request->request->get('MessageUUID'))
         ;
