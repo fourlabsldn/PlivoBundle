@@ -3,7 +3,6 @@
 namespace FL\PlivoBundle\Form\Handler;
 
 use Plivo\Plivo;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -18,11 +17,6 @@ abstract class SmsFormHandler
     protected $plivo;
 
     /**
-     * @var EventDispatcherInterface
-     */
-    protected $dispatcher;
-
-    /**
      * @var RouterInterface
      */
     protected $router;
@@ -33,31 +27,20 @@ abstract class SmsFormHandler
     protected $smsClass;
 
     /**
-     * @var bool
-     */
-    protected $developmentMode;
-
-    /**
      * SmsFormHandler constructor.
      *
-     * @param Plivo                    $plivo
-     * @param EventDispatcherInterface $dispatcher
-     * @param RouterInterface          $router
-     * @param string                   $smsClass
-     * @param bool                     $developmentMode
+     * @param Plivo           $plivo
+     * @param RouterInterface $router
+     * @param string          $smsClass
      */
     public function __construct(
         Plivo $plivo,
-        EventDispatcherInterface $dispatcher,
         RouterInterface $router,
-        string $smsClass,
-        bool $developmentMode
+        string $smsClass
     ) {
         $this->plivo = $plivo;
-        $this->dispatcher = $dispatcher;
         $this->router = $router;
         $this->smsClass = $smsClass;
-        $this->developmentMode = $developmentMode;
     }
 
     /**

@@ -66,7 +66,7 @@ abstract class BulkSms implements BulkSmsInterface
     }
 
     /**
-     * @return string
+     * @return string[]
      */
     public function getTo()
     {

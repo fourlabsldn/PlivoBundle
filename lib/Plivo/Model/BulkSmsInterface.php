@@ -32,7 +32,7 @@ interface BulkSmsInterface
     /**
      * Get phone numbers these messages will be sent to.
      *
-     * @return string
+     * @return string[]
      */
     public function getTo();
 

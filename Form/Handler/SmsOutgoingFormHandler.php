@@ -2,7 +2,6 @@
 
 namespace FL\PlivoBundle\Form\Handler;
 
-use FL\PlivoBundle\Event\OutgoingSmsSentEvent;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,11 +28,6 @@ class SmsOutgoingFormHandler extends SmsFormHandler
 
         $sms = $form->getData();
 
-        if (!$this->developmentMode) {
-            $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
-        }
-
-        $event = new OutgoingSmsSentEvent($sms);
-        $this->dispatcher->dispatch(OutgoingSmsSentEvent::EVENT_NAME, $event);
+        $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
     }
 }
