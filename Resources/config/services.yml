@@ -23,9 +23,15 @@ services:
   # services for Send Message form
   fl_plivo.form_type.sms_outgoing:
     class: FL\PlivoBundle\Form\Type\SmsOutgoingFormType
-    arguments: ["%fl_plivo.sms_outgoing.class%", "%fl_plivo.from_phone_numbers%"]
+    arguments: ["%fl_plivo.sms_outgoing.class%"]
     tags:
       - { name: form.type }
+
+  fl_plivo.type.from:
+    class: FL\PlivoBundle\Form\Type\FromType
+      tags:
+          - { name: form.type }
+      arguments: ["%fl_plivo.from_phone_numbers%"]
 
   fl_plivo.form_handler.sms:
     class: FL\PlivoBundle\Form\Handler\SmsFormHandler
@@ -62,7 +68,6 @@ services:
   # services for Send Bulk Message form
   fl_plivo.form_type.bulk_sms_outgoing:
     class: FL\PlivoBundle\Form\Type\BulkSmsOutgoingFormType
-    arguments: ["%fl_plivo.from_phone_numbers%"]
     tags:
       - { name: form.type }
 

@@ -15,30 +15,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class BulkSmsOutgoingFormType extends AbstractType
 {
     /**
-     * @var string[]|int[]
-     */
-    private $phoneNumberChoices;
-
-    /**
-     * BulkSmsOutgoingFormType constructor.
-     *
-     * @param \int[]|\string[] $phoneNumbers
-     */
-    public function __construct(array $phoneNumbers)
-    {
-        $this->phoneNumberChoices = array_combine($phoneNumbers, $phoneNumbers);
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('from', Type\ChoiceType::class, [
+            ->add('from', FromType::class, [
                 'required' => true,
                 'label' => 'From',
-                'choices' => $this->phoneNumberChoices,
             ])
             ->add('to', Type\TextType::class, [
                 'required' => true,
