@@ -29,9 +29,9 @@ services:
 
   fl_plivo.type.from:
     class: FL\PlivoBundle\Form\Type\FromType
-      tags:
-          - { name: form.type }
-      arguments: ["%fl_plivo.from_phone_numbers%"]
+    tags:
+        - { name: form.type }
+    arguments: ["%fl_plivo.from_phone_numbers%"]
 
   fl_plivo.form_handler.sms:
     class: FL\PlivoBundle\Form\Handler\SmsFormHandler
