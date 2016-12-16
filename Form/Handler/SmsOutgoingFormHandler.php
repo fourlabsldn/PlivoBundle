@@ -28,6 +28,6 @@ class SmsOutgoingFormHandler extends SmsFormHandler
 
         $sms = $form->getData();
 
-        $this->plivo->sendSms($sms, $this->getDeliveryReportUrl());
+        $this->plivo->sendSms($sms);
     }
 }

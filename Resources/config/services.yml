@@ -12,6 +12,7 @@ services:
       - "@event_dispatcher"
       - "%fl_plivo.sms_outgoing.class%"
       - "%fl_plivo.development_mode%"
+      - "@router"
 
   # Services to receive SMS from Plivo
   fl_plivo.incoming_sms_webhook:
@@ -41,8 +42,6 @@ services:
     class: FL\PlivoBundle\Form\Handler\SmsFormHandler
     arguments:
       - "@fl_plivo.plivo"
-      - "@router"
-      - "%fl_plivo.sms_outgoing.class%"
 
   fl_plivo.form_handler.sms_outgoing:
     class: FL\PlivoBundle\Form\Handler\SmsOutgoingFormHandler
