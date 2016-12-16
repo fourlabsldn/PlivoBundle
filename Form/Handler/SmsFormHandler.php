@@ -3,8 +3,6 @@
 namespace FL\PlivoBundle\Form\Handler;
 
 use Plivo\Plivo;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Class SmsFormHandler.
@@ -27,5 +25,3 @@ abstract class SmsFormHandler
         $this->plivo = $plivo;
     }
 }
-
-
