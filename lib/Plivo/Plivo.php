@@ -77,11 +77,11 @@ class Plivo
         $message['url'] = $this->getDeliveryReportUrl();
 
         $sms->setUuid(uniqid());
-        $sms->setDelivered();
+        $sms->setStatus(SmsOutgoingInterface::STATUS_DELIVERED);
         if (!$this->developmentMode) {
             $uuids = $this->client->postMessage($message);
             $sms->setUuid($uuids[0]);
-            $sms->setQueued();
+            $sms->setStatus(SmsOutgoingInterface::STATUS_QUEUED);
         }
 
         $this->dispatcher->dispatch(OutgoingSmsSentEvent::EVENT_NAME, new OutgoingSmsSentEvent($sms));
@@ -106,7 +106,7 @@ class Plivo
         for ($i = 0, $count = count($to); $i < $count; ++$i) {
             $sms = new $this->smsClass();
             /* @var SmsOutgoingInterface $sms */
-            $sms->setDelivered()
+            $sms->setStatus(SmsOutgoingInterface::STATUS_DELIVERED)
                 ->setUuid(uniqid())
                 ->setTo($to[$i])
                 ->setFrom($bulkSms->getFrom())
@@ -114,7 +114,8 @@ class Plivo
             ;
 
             if (!$this->developmentMode) {
-                $sms->setQueued()->setUuid($uuids[$i]);
+                $sms->setStatus(SmsOutgoingInterface::STATUS_QUEUED)
+                    ->setUuid($uuids[$i]);
             }
 
             $this->dispatcher->dispatch(OutgoingSmsSentEvent::EVENT_NAME, new OutgoingSmsSentEvent($sms));

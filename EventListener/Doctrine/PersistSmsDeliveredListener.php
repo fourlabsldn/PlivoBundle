@@ -42,7 +42,7 @@ class PersistSmsDeliveredListener
             );
         }
         /* @var SmsOutgoingInterface $message */
-        $message->setDelivered();
+        $message->setStatus($event->getSms()->getStatus());
         $this->manager->flush();
     }
 }

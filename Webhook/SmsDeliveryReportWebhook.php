@@ -45,7 +45,7 @@ class SmsDeliveryReportWebhook implements WebhookInterface
         $sms = new $this->smsClass();
         /* @var SmsOutgoingInterface $sms */
         $sms
-            ->setDelivered()
+            ->setStatus($request->request->get('Status'))
             ->setFrom($request->request->get('From'))
             ->setTo($request->request->get('To'))
             ->setUuid($request->request->get('MessageUUID'))

@@ -25,34 +25,23 @@ class SmsOutgoing extends Sms implements SmsOutgoingInterface
     }
 
     /**
-     * Set SmsOutgoing status as 'queued'.
-     *
-     * @return SmsOutgoingInterface
-     */
-    public function setQueued(): SmsOutgoingInterface
-    {
-        $this->status = self::STATUS_QUEUED;
-
-        return $this;
-    }
-
-    /**
-     * Set SmsOutgoing status as 'delivered'.
-     *
-     * @return SmsOutgoingInterface
-     */
-    public function setDelivered(): SmsOutgoingInterface
-    {
-        $this->status = self::STATUS_DELIVERED;
-
-        return $this;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStatus(string $status): SmsOutgoingInterface
+    {
+        if (!in_array($status, SmsOutgoingInterface::ALL_STATUSES)) {
+            throw new \InvalidArgumentException(sprintf('%s is not a valid status', $status));
+        }
+        $this->status = SmsOutgoingInterface::STATUS_UNKNOWN;
+
+        return $this;
     }
 }
