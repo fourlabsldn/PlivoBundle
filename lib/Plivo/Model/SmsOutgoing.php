@@ -40,7 +40,7 @@ class SmsOutgoing extends Sms implements SmsOutgoingInterface
         if (!in_array($status, SmsOutgoingInterface::ALL_STATUSES)) {
             throw new \InvalidArgumentException(sprintf('%s is not a valid status', $status));
         }
-        $this->status = SmsOutgoingInterface::STATUS_UNKNOWN;
+        $this->status = $status;
 
         return $this;
     }
