@@ -36,11 +36,10 @@ class PersistSmsDeliveredListener
      */
     public function onMessageDelivered(OutgoingSmsDeliveredEvent $event)
     {
-        if (!$message = $this->smsOutgoingRepository->findOneByUuid($event->getSms()->getUuid())) {
-            throw new \RuntimeException(
-                'SmsOutgoing with this MessageUUID not found.'
-            );
+        if (!($message = $this->smsOutgoingRepository->findOneByUuid($event->getSms()->getUuid()))) {
+            throw new \RuntimeException('SmsOutgoing with this MessageUUID not found.');
         }
+
         /* @var SmsOutgoingInterface $message */
         $message->setStatus($event->getSms()->getStatus());
         $this->manager->flush();
