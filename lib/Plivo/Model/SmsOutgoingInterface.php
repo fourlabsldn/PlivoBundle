@@ -5,7 +5,7 @@ namespace Plivo\Model;
 /**
  * Interface SmsOutgoingInterface.
  */
-interface SmsOutgoingInterface extends SmsInterface
+interface SmsOutgoingInterface
 {
     /**
      * Ideally, SmsOutgoing will have this status flow:

@@ -55,11 +55,16 @@ class IncomingSmsWebhook implements WebhookInterface
             $to = '+'.$to;
         }
 
+        $uuid = $request->request->has('ParentMessageUUID')
+            ? $request->request->get('ParentMessageUUID')
+            : $request->request->get('MessageUUID')
+        ;
+
         $smsIncoming
             ->setFrom($from)
             ->setTo($to)
             ->setText($request->request->get('Text'))
-            ->setUuid($request->request->get('MessageUUID'))
+            ->setUuid($uuid)
         ;
 
         $event = new IncomingSmsReceivedEvent($smsIncoming);

@@ -4,6 +4,7 @@ namespace FL\PlivoBundle\EventListener\Doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use FL\PlivoBundle\Event\IncomingSmsReceivedEvent;
+use Plivo\Model\SmsInterface;
 
 class PersistSmsReceivedListener
 {
@@ -25,7 +26,18 @@ class PersistSmsReceivedListener
      */
     public function onMessageReceived(IncomingSmsReceivedEvent $event)
     {
-        $this->manager->persist($event->getSms());
+        $newSms = $event->getSms();
+        $repository = $this->manager->getRepository(get_class($newSms));
+
+        // Long messages have the same parent uuid
+        /** @var SmsInterface $existingSms */
+        if (($existingSms = $repository->findOneByUuid($newSms->getUuid()))) {
+            $existingSms->append($newSms);
+            $this->manager->persist($existingSms);
+        } else {
+            $this->manager->persist($newSms);
+        }
+
         $this->manager->flush();
     }
 }
