@@ -1,6 +1,8 @@
 # PlivoBundle
 
 [![StyleCI](https://styleci.io/repos/72456491/shield?branch=master)](https://styleci.io/repos/72456491)
+[![Total Downloads](https://poser.pugx.org/fourlabs/plivo-bundle/downloads)](https://packagist.org/packages/fourlabs/plivo-bundle)
+[![License](https://poser.pugx.org/fourlabs/plivo-bundle/license)](https://packagist.org/packages/fourlabs/plivo-bundle)
 
 ## Installation
 
