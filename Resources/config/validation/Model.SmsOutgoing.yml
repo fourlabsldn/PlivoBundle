@@ -1,5 +1,5 @@
 # Don't forget you can override this file in
-# app/Resources/PlivoBundle/validation/Model.SmsOutgoing.yml
+# app/Resources/FLPlivoBundle/validation/Model.SmsOutgoing.yml
 Plivo\Model\SmsOutgoing:
     properties:
         from:
@@ -7,7 +7,6 @@ Plivo\Model\SmsOutgoing:
             - Type: string
             - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber:
                 type: "mobile"
-                defaultRegion: "GB"
         to:
             - NotBlank: ~
             - Type: string

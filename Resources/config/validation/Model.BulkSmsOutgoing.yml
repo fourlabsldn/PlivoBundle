@@ -1,6 +1,12 @@
 # Don't forget you can override this file in
-# app/Resources/PlivoBundle/validation/Model.BulkSmsOutgoing.yml
+# app/Resources/FLPlivoBundle/validation/Model.BulkSmsOutgoing.yml
 Plivo\Model\BulkSmsOutgoing:
+    constraints:
+      - FL\PlivoBundle\Validator\Constraint\FromCountry:
+          fromField: from
+          toField: to
+          errorPath: to
+
     properties:
         from:
             - NotBlank: ~
@@ -11,7 +17,6 @@ Plivo\Model\BulkSmsOutgoing:
                 - Type: string
                 - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber:
                     type: "mobile"
-                    defaultRegion: "GB"
                     message: "All phone numbers must be valid."
             - Expression:
                 expression: "this.getFrom() not in this.getTo()"

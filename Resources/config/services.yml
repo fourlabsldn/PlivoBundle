@@ -82,3 +82,9 @@ services:
       - "@form.factory"
       - "@fl_plivo.form_handler.bulk_sms_outgoing"
       - "@twig"
+
+  fl_plivo.from_country_validator:
+    class: FL\PlivoBundle\Validator\Constraint\FromCountryValidator
+    arguments: ["@libphonenumber.phone_number_util"]
+    tags:
+      - { name: validator.constraint_validator }
