@@ -11,7 +11,7 @@ interface BulkSmsInterface
      *
      * @return BulkSmsInterface
      */
-    public function setFrom(string $from): BulkSmsInterface;
+    public function setFrom(string $from): self;
 
     /**
      * Get phone number from which these messages will be sent.
@@ -27,7 +27,7 @@ interface BulkSmsInterface
      *
      * @return BulkSmsInterface
      */
-    public function setTo(array $to): BulkSmsInterface;
+    public function setTo(array $to): self;
 
     /**
      * Get phone numbers these messages will be sent to.
@@ -43,7 +43,7 @@ interface BulkSmsInterface
      *
      * @return BulkSmsInterface
      */
-    public function setText(string $text): BulkSmsInterface;
+    public function setText(string $text): self;
 
     /**
      * Get content of the message.
@@ -58,7 +58,7 @@ interface BulkSmsInterface
      *
      * @return BulkSmsInterface
      */
-    public function setUuids(array $uuids): BulkSmsInterface;
+    public function setUuids(array $uuids): self;
 
     /**
      * Set MessageUUIDs for each message sent.
