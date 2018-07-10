@@ -22,7 +22,7 @@
     "symfony/http-foundation": "~2.8|~3.0|~3.1",
     "symfony/routing": "~2.8|~3.0|~3.1",
     "symfony/options-resolver": "~2.8|~3.0|~3.1",
-    "eightpoints/guzzle-bundle": "~7.0",
+    "guzzlehttp/guzzle": "~6.2",
     "friendsofsymfony/rest-bundle": "^2.0",
     "misd/phone-number-bundle": "^1.3"
   },

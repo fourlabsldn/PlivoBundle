@@ -8,10 +8,10 @@
 
 Install with composer
 ```bash
-    $ composer require fourlabs/plivo-bundle
+    $ composer require fourlabs/plivo-bundle eightpoints/guzzle-bundle
 ```
 
-Add the bundle to app/AppKernel.php
+Add these bundles to app/AppKernel.php
 ```php
 <?php
     //...
@@ -75,4 +75,3 @@ imports:
 ## License
 
 PlivoBundle is licensed under the MIT license.
-
