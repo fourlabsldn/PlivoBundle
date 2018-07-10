@@ -19,7 +19,7 @@ Add the bundle to app/AppKernel.php
         // ...
         // FLPlivoBundle depends on GuzzleBundle and MisdPhoneNumberBundle
         // Add them if they're not already present in your $bundles
-        new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(), 
+        new EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundle(), 
         new Misd\PhoneNumberBundle\MisdPhoneNumberBundle(), 
         new FL\PlivoBundle\FLPlivoBundle(),    
     ];
@@ -30,7 +30,7 @@ Add the bundle to app/AppKernel.php
 
 ```yaml
 # Guzzle Configuration
-guzzle:
+eight_points_guzzle:
     clients:
         plivo: # configure plivo client
             base_url: 'https://api.plivo.com/v1/Account/%plivo_auth_id%/'
@@ -48,7 +48,7 @@ fl_plivo:
   sms_outgoing_class: AppBundle\Entity\SmsOutgoing
   development_mode: true # if set to true, sms will not be sent - defaults to false
 ```
-
+****
 ## Sample Routing
 
 ```yaml
