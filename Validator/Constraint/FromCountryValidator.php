@@ -56,7 +56,7 @@ class FromCountryValidator extends ConstraintValidator
             $toPhone = $this->phoneNumberUtil->parse($toNumber, 'GB');
             $toCountryCode = $this->phoneNumberUtil->getRegionCodeForNumber($toPhone);
 
-            if (!($toCountryCode === 'US' || $toCountryCode === 'CA')) {
+            if (!('US' === $toCountryCode || 'CA' === $toCountryCode)) {
                 continue;
             }
 
