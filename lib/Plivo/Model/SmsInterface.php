@@ -14,7 +14,7 @@ interface SmsInterface
      *
      * @return SmsInterface
      */
-    public function setText(string $text): SmsInterface;
+    public function setText(string $text): self;
 
     /**
      * Get the text in the SMS.
@@ -30,7 +30,7 @@ interface SmsInterface
      *
      * @return SmsInterface
      */
-    public function setFrom(string $from): SmsInterface;
+    public function setFrom(string $from): self;
 
     /**
      * Gets phone number the SMS is sent from.
@@ -46,7 +46,7 @@ interface SmsInterface
      *
      * @return SmsInterface
      */
-    public function setTo(string $to): SmsInterface;
+    public function setTo(string $to): self;
 
     /**
      * Get destination phone number for the SMS.
@@ -62,7 +62,7 @@ interface SmsInterface
      *
      * @return SmsInterface
      */
-    public function setUuid(string $uuid = null): SmsInterface;
+    public function setUuid(string $uuid = null): self;
 
     /**
      * Get the message ID, references Plivo MessageUUID.

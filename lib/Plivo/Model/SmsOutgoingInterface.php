@@ -12,12 +12,19 @@ interface SmsOutgoingInterface
      * Pending -> Queued -> Delivered.
      */
     const STATUS_PENDING = 'pending';
+
     const STATUS_QUEUED = 'queued';
+
     const STATUS_SENT = 'sent';
+
     const STATUS_FAILED = 'failed';
+
     const STATUS_UNDELIVERED = 'undelivered';
+
     const STATUS_DELIVERED = 'delivered';
+
     const STATUS_REJECTED = 'rejected';
+
     const STATUS_UNKNOWN = 'unknown';
 
     const ALL_STATUSES = [
@@ -45,5 +52,5 @@ interface SmsOutgoingInterface
      *
      * @return SmsOutgoingInterface
      */
-    public function setStatus(string $status): SmsOutgoingInterface;
+    public function setStatus(string $status): self;
 }

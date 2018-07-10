@@ -33,7 +33,7 @@ class RestClientGuzzle extends RestClient implements RestClientGuzzleInterface
             'allow_redirects' => false,
         ]);
 
-        if ($response->getStatusCode() !== 202) {
+        if (202 !== $response->getStatusCode()) {
             throw new TransferException(
                 'Unexpected HTTP status code, expected 202, received '.$response->getStatusCode(),
                 $response->getStatusCode()
