@@ -48,7 +48,7 @@ fl_plivo:
   sms_outgoing_class: AppBundle\Entity\SmsOutgoing
   development_mode: true # if set to true, sms will not be sent - defaults to false
 ```
-****
+
 ## Sample Routing
 
 ```yaml
