@@ -3,10 +3,10 @@ services:
   fl_plivo.client_guzzle:
     class: Plivo\Client\RestClientGuzzle
     arguments: ["@guzzle.client.plivo"]
-    private: true
 
   fl_plivo.plivo:
     class: Plivo\Plivo
+    public: true
     arguments:
       - "@fl_plivo.client_guzzle"
       - "@event_dispatcher"
@@ -23,6 +23,7 @@ services:
 
   'Plivo\Action\ApiPostMessageAction':
     class: Plivo\Action\ApiPostMessageAction
+    public: true
     arguments: ["@fl_plivo.incoming_sms_webhook"]
 
   # services for Send Message form
@@ -49,6 +50,7 @@ services:
 
   'Plivo\Action\SendMessageAction':
     class: Plivo\Action\SendMessageAction
+    public: true
     arguments:
       - "@form.factory"
       - "@fl_plivo.form_handler.sms_outgoing"
@@ -63,6 +65,7 @@ services:
 
   'Plivo\Action\ApiMessageDeliveryReportAction':
     class: Plivo\Action\ApiMessageDeliveryReportAction
+    public: true
     arguments:
       - "@fl_plivo.sms_delivery_report_webhook"
 
